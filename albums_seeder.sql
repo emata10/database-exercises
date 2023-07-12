@@ -104,3 +104,29 @@ VALUES ('Santana', 'Supernatural  ', 1999, 20.5, 'Rock');
 INSERT INTO albums (artist, name, release_date, sales, genre)
 VALUES ('Guns N' 'Roses', 'Appetite for Destruction', 1987, 21.6, ' Hard rock');
 
+-- Truncate the table to delete all records before inserting
+TRUNCATE TABLE albums;
+
+INSERT INTO albums (artist, name, release_date, genre, sales)
+VALUES ('Album A', 'Artist A', 1980, 'Rock', 100),
+       ('Album B', 'Artist B', 1990, 'Pop', 200),
+       ('Album C', 'Artist C', 2000, 'R&B', 300),
+       ('Album D', 'Artist D', 1995, 'Disco', 400),
+       ('Album E', 'Artist E', 1985, 'Pop', 500),
+       ('Album F', 'Artist F', 1998, 'Rock', 600),
+       ('Album G', 'Artist G', 1982, 'Disco', 700);
+
+-- Select albums released after 1991
+select * FROM albums WHERE release_date > 1991;
+-- Delete albums released after 1991
+DELETE FROM albums WHERE release_date > 1991;
+
+-- Select albums with the genre 'disco'
+SELECT * FROM albums WHERE genre = 'disco';
+-- Delete albums with the genre 'disco'
+DELETE FROM albums WHERE genre = 'disco';
+
+-- Select albums by "Whitney Houston' (or any artist of your choice)
+SELECT *FROM albums WHERE artist = 'Whitney Houston';
+-- Delete albums by "Whitney Houston'
+DELETE FROM albums WHERE artist = 'Whitney Houston';
