@@ -1,5 +1,4 @@
 USE employees;
-
 SELECT emp_no, hire_date
 FROM employees
 WHERE hire_date = (
@@ -13,10 +12,13 @@ FROM employees e
 JOIN titles t ON e.emp_no = t.emp_no
 WHERE e.first_name = 'Aamod';
 
-SELECT e.emp_no, e.first_name, e.last_name
-FROM employees e
-JOIN dept_manager dm ON e.emp_no = dm.emp_no
-WHERE e.gender = 'F' AND dm.to_date = '9999-01-01';
+SELECT first_name, last_name
+FROM employees
+WHERE gender = 'F' AND emp_no IN(
+    SELECT emp_no
+    FROM dept_manager
+    WHERE to_date LIKE '9999%'
+    );
 
 
 SELECT d.dept_name
